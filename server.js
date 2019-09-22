@@ -24,18 +24,13 @@ app.use(bodyParser.urlencoded({
 app.use(router);
 
 let db = process.env.MONGO_URL || 'mongodb://localhost/mongoHeadlines',
-
-mongoose.connect(db, function(error){
-    
-    if(error) {
-        console.log(error);
-    }
-    else{
-        console.log('mongoose connection is successful');
-    }
-})
+`// DB connection
+require('dotenv').config()
+var db = require("./models");
+var MONGODB_URI = process.env.MONGODB_URI;
+mongoose.connect(MONGODB_URI),
+.then(()=>console.log("DB connected"))
 
 app.listen(3000, function() {
     console.log("App running on port 3000!");
-  });
-  
+});

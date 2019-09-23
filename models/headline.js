@@ -19,6 +19,6 @@ let headlineSchema = new Schema({
     }
 });
 
-let Headline = mongoose.model("Headlne", headlineSchema);
+let Headline = mongoose.model("Headline", headlineSchema);
 
 module.exports = Headline;

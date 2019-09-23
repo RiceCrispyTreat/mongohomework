@@ -2,14 +2,14 @@ let express = require ('express');
 let mongoose = require('mongoose');
 let expressHandlebars = require('express-handlebars');
 let bodyParser = require('body-parser');
-
+mongoose.Promise = Promise;
 
 let PORT = process.env.PORT || 3000;
 
 let app = express();
 
 let router = express.Router();
-require('.config/routes')(router);
+require('./config/routes')(router);
 app.use(express.static(__dirname + '/public'));
 
 app.engine('handlebars', expressHandlebars({
@@ -23,14 +23,15 @@ app.use(bodyParser.urlencoded({
 
 app.use(router);
 
-let db = process.env.MONGO_URL || 'mongodb://localhost/mongoHeadlines',
-`// DB connection
+// DB connection
 require('dotenv').config()
-var db = require("./models");
-var MONGODB_URI = process.env.MONGODB_URI;
-mongoose.connect(MONGODB_URI),
-.then(()=>console.log("DB connected"))
 
-app.listen(3000, function() {
+let headline = require("./models/headline");
+let note = require('./models/note');
+let MONGODB_URI = process.env.MONGO_URL || 'mongodb://localhost/mongoHeadlines';
+mongoose.connect(MONGODB_URI)
+        .then(()=>console.log("DB connected"))
+
+app.listen(PORT, function() {
     console.log("App running on port 3000!");
 });

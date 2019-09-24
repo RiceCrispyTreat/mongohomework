@@ -29,7 +29,7 @@ $(document).ready(function() {
   function createPanel(article) {
     let panel = $(
       [
-        '<div class="panel panel-default">',
+        "<div class='panel panel-default'>",
         "<div class='panel-heading'>",
         "<h3>",
         article.headline,
@@ -37,15 +37,15 @@ $(document).ready(function() {
         "Save Article",
         "</a>",
         "</h3>",
-        "<div>",
+        "</div>",
         "<div class='panel-body'>",
-        article.summary,
+        "Summary",//article.summary,
         "</div>",
         "</div>"
       ].join("")
     );
 
-    panel.data("_id", article.id);
+    panel.data("_id", article._id);
     return panel;
   }
 

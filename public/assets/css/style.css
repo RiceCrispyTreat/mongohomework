@@ -5,7 +5,7 @@ html {
   
   body {
     margin-bottom: 80px;
-    background-image: url("/assets/images/maxresdefault.jpg");
+    background-color: #f72509;
     background-size: cover;
   }
   
@@ -31,8 +31,9 @@ html {
     width: 100%;
     height: 500px;
     padding: 0;
+    background-color: black;
     font-family: "Cormorant SC";
-    box-shadow: 10px 5px 20px 2px lightslategrey;
+    box-shadow: 10px 5px 20px 2px rgb(10, 10, 10);
   }
   
   .jumbotron .overlay {

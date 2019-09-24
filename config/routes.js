@@ -9,7 +9,7 @@ module.exports = function(router) {
   });
 
   router.get("/saved", function(req, res) {
-    res.render("saved");
+    res.render("layouts/saved");
   });
 
   router.get("/api/fetch", function(req, res) {
